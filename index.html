@@ -2,6 +2,17 @@
 <html lang="pt-br">
 
 <head>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+                .then(registration => {
+                    console.log('Service Worker registrado com sucesso:', registration);
+                })
+                .catch(error => {
+                    console.log('Erro ao registrar Service Worker:', error);
+                });
+        }
+    </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,6 +61,14 @@
     </div>
 
     <script src="myApp.js"></script>
+    <script src="capacitor.js"></script>
+    <script>
+        document.addEventListener('deviceready', () => {
+            // Seu código JavaScript relacionado ao Capacitor aqui
+            // Por exemplo, pode ser necessário iniciar um WebView para a sua URL do site.
+        });
+    </script>
+
 </body>
 
 </html>
